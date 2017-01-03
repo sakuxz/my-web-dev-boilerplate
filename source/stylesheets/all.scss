@@ -1,2 +1,5 @@
-@import "helpers/variables";
-@import "bootstrap";
+@import "_mixin";
+
+.remove {
+  @include gg();
+}

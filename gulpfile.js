@@ -16,14 +16,14 @@ gulp.task('sass', function() {
   var processors = [
     autoprefixer(config.postcss.autoprefixer)
   ];
-  gulp.src([config.paths.sass + '**/**.scss'])
+  gulp.src([config.paths.sass + 'all.scss'])
     .pipe(plumber())
     .pipe(sass(config.sass)
     .on('error', sass.logError))
     .pipe(postcss(processors))
       .pipe(gulp.dest(config.paths.public + config.paths.sass_output));
 });
-watch([config.paths.sass + '**/*.scss'], function() {
+watch([config.paths.sass + '**/*.scss', config.paths.sass + '*.scss'], function() {
   gulp.start('sass');
 });
 
